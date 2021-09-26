@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mospade.github.io</id>
-    <title>Gridea</title>
-    <updated>2021-09-26T02:40:03.552Z</updated>
+    <title>MoSpade</title>
+    <updated>2021-09-26T02:42:29.116Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://mospade.github.io"/>
     <link rel="self" href="https://mospade.github.io/atom.xml"/>
-    <subtitle>温故而知新</subtitle>
+    <subtitle>我没见过,但也许存在</subtitle>
     <logo>https://mospade.github.io/images/avatar.png</logo>
     <icon>https://mospade.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2021, Gridea</rights>
+    <rights>All rights reserved 2021, MoSpade</rights>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
         <id>https://mospade.github.io/post/hello-gridea/</id>
