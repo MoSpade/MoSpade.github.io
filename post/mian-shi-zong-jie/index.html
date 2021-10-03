@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>面试总结 | MoSpade</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://serverless-page-bucket-u4mtvy9s-1307701954.cos-website.ap-shanghai.myqcloud.com/favicon.ico?v=1633236169827">
+<link rel="stylesheet" href="https://serverless-page-bucket-u4mtvy9s-1307701954.cos-website.ap-shanghai.myqcloud.com/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="210108面试总结
+Flume
+--taildir source监控是目录还是文件--
+
+--讲讲flume的事务，at least once的提交机制--
+
+Kafka
+--Kafka挂了怎么确保精准一次性--
+
+--Kafka遇到了什..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://serverless-page-bucket-u4mtvy9s-1307701954.cos-website.ap-shanghai.myqcloud.com">
+        <img src="https://serverless-page-bucket-u4mtvy9s-1307701954.cos-website.ap-shanghai.myqcloud.com/images/avatar.png?v=1633236169827" class="site-logo">
+        <h1 class="site-title">MoSpade</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://mospade.github.io" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      我没见过,但也许存在
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://serverless-page-bucket-u4mtvy9s-1307701954.cos-website.ap-shanghai.myqcloud.com/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">面试总结</h2>
+            <div class="post-date">2021-09-26</div>
+            
+            <div class="post-content" v-pre>
+              <h1 id="210108面试总结">210108面试总结</h1>
+<h2 id="flume">Flume</h2>
+<pre><code class="language-sql">--taildir source监控是目录还是文件--
+
+--讲讲flume的事务，at least once的提交机制--
+</code></pre>
+<h2 id="kafka">Kafka</h2>
+<pre><code class="language-sql">--Kafka挂了怎么确保精准一次性--
+
+--Kafka遇到了什么问题--
+
+--kafka zk连接broker信息，看有哪些topic中数据是什么样子用什么命令--
+
+--看多少topic的命令--
+
+--kafka有没有遇到数据重复问题--
+
+--实时和离线一起运行的情况下，Kafka吞吐量多少？--
+
+--kafka 遇到的问题 扩容问题怎么解决--
+</code></pre>
+<h2 id="hbase">HBase</h2>
+<pre><code class="language-sql">--HBase是怎么处理热点问题的--
+
+--HBase的scan和get区别--
+
+--HBase二级索引--
+
+--Phoenix写入时二级索引会生效，直接写入HBase呢，二级索引--
+
+--在hBase中打散的劣势--
+
+
+</code></pre>
+<h2 id="hive">Hive</h2>
+<pre><code class="language-sql">--Hive和MySQL区别--
+    数据存储位置
+    数据更新
+    执行延迟
+    数据规模
+    不支持事务，也不支持索引
+    语法上有开窗，炸裂侧写，支持多引擎，可以自定义UDF、UDTF，可以解析json，有自己的复杂数据结构
+    列式存储
+    分区分桶四个by
+    
+--Hive的分区分桶，rank、row_number,order by,sort by--
+
+--impala和hive计算引擎区别--
+
+--mr过程哪一步最消耗性能--
+
+--Hive数据倾斜解决--
+
+--hive三行转三列--
+
+--列存的优点--
+
+--Hive怎么实现更新一条数据--
+
+--spark on hive 和 hive on spark--
+
+--hive on spark对比sparksql--
+
+--hive怎么优化--
+
+--Hive 是如何把sql转化为mr程序. 比如两个表join 做了哪些操作,map 和reduce得输入输出分别是什么?--
+
+--sqlAPi了解多少--
+
+--order by  sort by distribute by 的区别--
+</code></pre>
+<pre><code class="language-sql">--sql:
+--旅馆入住，求入住人和同住人，同住人的条件是同一旅店同一房间的人的入住时间或者离开时间在15分钟以内的--
+
+--7天连续三天--
+
+--要求不能开窗，编写一个 SQL 查询，查找所有至少连续出现三次的数字。--
+</code></pre>
+<h2 id="azkaban">Azkaban</h2>
+<pre><code class="language-sql">--azakaban使用遇到的问题--
+--Azkaban节点间依赖--
+    mysql创建一个授权帐号
+    编写Azkaban工作流程配置文件
+    azkaban.project
+    xxx.flow文件
+    注意里面的dependsOn就是节点依赖
+    多Executor
+    {
+        nodes:
+      - name: mysql_to_hdfs
+        type: command
+        config:
+         command: /home/atguigu/bin/mysql_to_hdfs.sh all ${dt}
+
+      - name: hdfs_to_ods_log
+        type: command
+        config:
+         command: /home/atguigu/bin/hdfs_to_ods_log.sh ${dt}
+
+      - name: hdfs_to_ods_db
+        type: command
+        dependsOn: 
+         - mysql_to_hdfs
+        config: 
+         command: /home/atguigu/bin/hdfs_to_ods_db.sh all ${dt}
+        ......
+    }
+</code></pre>
+<h2 id="sqoop">Sqoop</h2>
+<pre><code class="language-sql">--sqoop导入导出的格式内容--
+</code></pre>
+<h2 id="redis">Redis</h2>
+<pre><code class="language-sql">--Redis有几种类型--
+    string
+    hash
+    list
+    set
+    sorted set
+    （切忌不要说int）
+    
+--Redis搭建的是什么形式？
+    单节点
+    主从（哨兵模式）
+    集群
+    
+--redis 遇到的雪崩 缓存 热点key 怎么解决--
+</code></pre>
+<h2 id="clickhouse">ClickHouse</h2>
+<pre><code class="language-sql">--ClickHouse支不支持高并发--
+
+--为什么用ClickHouse，ClickHouse和ES对比--
+
+--你们实时用的ClickHouse数据量有多大？--
+
+</code></pre>
+<h2 id="elasticsearch">ElasticSearch</h2>
+<pre><code class="language-sql">--ES版本号、命令--
+
+</code></pre>
+<h2 id="离线数仓">离线数仓</h2>
+<pre><code class="language-sql">--离线使用什么调度，具体配置过程--
+
+--为什么用星型模型，为什么不用雪花模型--
+    星型架构是一种非正规化的结构，多维数据集的每一个维度都直接与事实表相连接，不存在渐变维度，所以数据有一定的冗余。
+    当有一个或多个维表没有直接连接到事实表上，而是通过其他维表连接到事实表上时，其图解就像多个雪花连接在一起，故称雪花模型。雪花模型是对星型模型的扩展。
+    数据存储方面：星型架构有数据冗余，反范式化，雪花架构没有数据冗余。
+    雪花模型在ETL操作，加载数据集市的数据是会比较复杂，因为维度表之间还存在关联模型，星型就相对简单很多。
+    雪花模型在维度表、事实表之间的连接很多，因此性能方面会比较低，而星型模型的性能就会比较高。
+    雪花模型更加适合维度分析的场景，星型模型更加适合指标分析的场景。
+    
+--雪花模型对比星型模型优势--
+    在维度建模的基础上又分为三种模型：星型模型、星座模型和雪花模型
+    雪花模型与星型模型的区别主要在于维度的层级，标准的星型模型维度只有一层，而雪花模型可能会涉及多级
+    雪花模型，比较靠近3NF，但是无法完全遵守，因为遵循3NF的性能成本太高
+    星座模型与前两种情况的区别是事实表的数量，星座模型是基于多个事实表
+    基本上很多数据仓库的常态，因为很多数据仓库都是多个事实表的。所以星座不星星座只反映是否有多个事实表，他们之间是否共享一些维度表
+    所以星座模型并不和前两个模型冲突
+    首先就是星座不星座这个只跟数据和需求有关系，跟设计没关系，不用选择
+    星型还是雪花，取决于性能优先，还是灵活更优先。
+    目前企业开发中，不会绝对选择一种，根据情况灵活组合，甚至并存（一层维度和多层维度都保存）。但是整体来看，更货币于维度更少的星型模型。尤其是Hadoop休系，减少Join就是减少Shuffle，性能差距很大。（关系型数据可以依靠强大的主键索引）
+    
+--数仓建模举例说明一个ADS层指标是怎么计算出来的--
+
+--数仓和数据库的区别--
+
+--ods存hdfs，那么hive表是内部表还是外部表。--
+
+--建离线模型，用内部还是外部表。--
+
+--表在hdfs上存储格式--
+
+--压缩方法有哪几种--
+
+--数仓dwd做了哪些处理。--
+
+--指标倒推dwd的问题，新加了指标dwd粒度没有，那又要重构怎么办--
+
+--改指标改dwd表怎么办，面向政府客户要我们不停改怎么办--
+
+--事实表是如何确定的--
+
+--事实表有哪些表，订单表有哪些维度，有没有用过总线矩阵--
+
+--几亿级数据量平时需要几百万数据量的计算如何使用OLAP实现？--
+
+--介绍下数仓分层, 你们怎么分的, 以及每一层得作用--
+
+</code></pre>
+<h2 id="实时数仓sparkflink">实时数仓（Spark&amp;&amp;Flink）</h2>
+<pre><code class="language-sql">--Flink和SparkStreaming区别--
+    Flink 是标准的实时处理引擎，基于事件驱动。而 Spark Streaming 是微批（Micro-Batch）的模型。
+    #主要角色的不同
+    Spark：Master/Worker/Driver/Executor
+    Flink:JobManager/TaskManager/Slot
+    #任务调度的不同
+    SparkStreaming连续不断的生成微小的数据批次，构建有向无环图DAG，依次创建DStreamGraph/JobGenerator/JobScheduler
+    Flink根据用户提交的代码生成StreamGraph，经过优化生成JobGraph，然后提交给JobManager进行处理，JobManager会根据JobGraph生成ExecutionGraph,ExecutionGraph是Flink调度最核心的数据结构，JobManager根据ExecutionGraph对Job进行调度
+    #时间机制的不同
+    SparkStreaming只支持处理时间
+    Flink支持：处理时间、事件时间、注入时间，同时也支持WaterMark机制来处理滞后数据
+    #容错机制的不同
+    SparkStreaming，可以设置checkpoint，然后假如发生故障并重启，我们可以从上次checkpoint之处恢复，但是这个行为只能使得数据不丢失，可能会重复处理，不能做到恰好一次语义
+    Flink则使用两阶段提交协议来解决这个问题。
+    
+--提交流程、算子底层、底层通信、容错机制、有几种backend，基于memory的存在哪里--
+
+--去重操作在哪一层--
+
+--SpringBoot和展示的对接--
+
+--groupByKey和aggregateByKey区别--
+
+--SparkStreaming有什么--
+
+--SparkStreaming有状态和无状态--
+
+--SparkStreaming持久化--
+
+--你们实时用的ClikcHouse数据量有多大？--
+
+--讲一下flink提交到yarn得流程--
+
+--flink状态有哪些--
+
+--哪些业务场景用到了状态: 广播 去重 聚合等操作--
+
+--interval join得缺陷--
+	不能处理超时数据
+	
+--讲一下flink使用过程中的问题 有没有集群宕机的情况:--
+
+--讲一下waterMark和三种时间语义--
+
+--讲一下ck savepoint--
+
+--讲一下barrier  对齐的操作, 非对齐会产生什么情况--
+
+--flink遇到的问题, flink消费能力不足的调优--
+
+--介绍实时项目的pipeline--
+
+--介绍下数仓分层, 你们怎么分的, 以及每一层得作用--
+
+--对实时数据做一个topN的,怎么做: 使用ListState--
+
+--flink算子的一些劣势--
+
+--flinkcheckPoint 怎么实现 源码层--
+
+--一条数据从windowAssigner进入 到 trigger 窗口计算做了哪些事情, 结合waterMark机制讲--
+
+--对一个非常大的流数据进行排序,怎么做--
+
+--介绍flinkwatermark 和watermark的传递机制。--
+
+--介绍flink消费kafka主题并行度问题--
+
+--flink提交用到了哪些参数 申请资源的有哪些--
+
+--taskmanager是什么 slot是什么--
+
+--slot的划分机制--
+
+--flink求topn，手写代码，ds怎么做--
+
+--flink rpc通信机制--
+
+--flink序列化机制--
+
+--可视化，预警（预警了什么样的信息）--
+
+--元数据管理相关（keys-by-keys的指标校验）--
+
+</code></pre>
+<h2 id="线程">线程</h2>
+<pre><code class="language-sql">--start()和run()方法有什么区别--
+    用start方法来启动线程，真正实现了多线程运行，这时无需等待run方法体代码执行完毕而直接继续执行下面的代码。通过调用Thread类的start()方法来启动一个线程，这时此线程处于就绪（可运行）状态，并没有运行，一旦得到cpu时间片，就开始执行run()方法，这里方法run()称为线程体，它包含了要执行的这个线程的内容，run方法运行结束，此线程随即终止。
+    run()方法只是类的一个普通方法而已，如果直接调用Run方法，程序中依然只有主线程这一个线程，其程序执行路径还是只有一条，还是要顺序执行，还是要等待run方法体执行完毕后才可继续执行下面的代码，这样就没有达到写线程的目的。
+    
+--如何用多线程自己实现一个高并发且线程安全的Map--
+
+</code></pre>
+<h2 id="个人">个人</h2>
+<pre><code class="language-sql">--大数据擅长、弱势的地方的地方--
+
+--提供数据给谁看，哪些人关注这个数据？--
+
+--用过哪些数据库--
+
+--具体工作职责--
+
+--用shell写过什么脚本--
+
+</code></pre>
+
+            </div>
+            
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>
