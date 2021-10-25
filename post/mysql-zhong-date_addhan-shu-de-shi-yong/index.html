@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title> mysql中date_add()函数的使用? | MoSpade</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://MoSpade.github.io//favicon.ico?v=1635160437439">
+<link rel="stylesheet" href="https://MoSpade.github.io//styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="需求描述:
+在使用mysql的过程中,需要对日期进行计算,比如对某个日期加上几天,几个小时等操作,
+在此记录下,date_add()函数的使用.
+操作过程:
+date_add()函数语法:
+　　DATE_ADD(date,INTERVAL ..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://MoSpade.github.io/">
+        <img src="https://MoSpade.github.io//images/avatar.png?v=1635160437439" class="site-logo">
+        <h1 class="site-title">MoSpade</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://mospade.github.io" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      我没见过,但也许存在
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://MoSpade.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title"> mysql中date_add()函数的使用?</h2>
+            <div class="post-date">2021-10-15</div>
+            
+            <div class="post-content" v-pre>
+              <p><strong>需求描述</strong>:</p>
+<p>在使用mysql的过程中,需要对日期进行计算,比如对某个日期加上几天,几个小时等操作,</p>
+<p>在此记录下,date_add()函数的使用.</p>
+<p><strong>操作过程</strong>:</p>
+<p>date_add()函数语法:</p>
+<pre><code>　　DATE_ADD(date,INTERVAL expr unit)
+</code></pre>
+<p>备注:<strong>date_add()和adddate()是同义词</strong>.</p>
+<p><strong>参数说明</strong>:</p>
+<p>date:起始日期或者起始时间</p>
+<p>expr:指定的是一个间隔值,在起始时间中增加或者减少,<strong>注意</strong>:expr是一个字符串.对于负值间隔,可以以&quot;-&quot;开头</p>
+<p>unit:表示的是一个单位,比如,加上的是1天还是一个小时.</p>
+<p>1.对某个日期加上n天的操作</p>
+<pre><code class="language-mysql">mysql&gt; select date_add('2018-06-26',INTERVAL '5' day);
++-----------------------------------------+
+| date_add('2018-06-26',INTERVAL '5' day) |
++-----------------------------------------+
+| 2018-07-01                              |
++-----------------------------------------+
+1 row in set (0.00 sec)
+
+mysql&gt; select date_add('2018-06-26',INTERVAL '-5' day);
++------------------------------------------+
+| date_add('2018-06-26',INTERVAL '-5' day) |
++------------------------------------------+
+| 2018-06-21                               |
++------------------------------------------+
+1 row in set (0.01 sec)
+</code></pre>
+<p>备注:expr是字符串,如果加上的正值的天数,直接'5'即可,如果是减可以用date_sub函数或者expr为负值'-5'.</p>
+<p>2.对某个日期加上n小时,n分钟,n秒的操作</p>
+<pre><code>mysql&gt; select date_add('2018-06-26 23:59:59',INTERVAL 1 hour);  #对于日期加上1小时
++-------------------------------------------------+
+| date_add('2018-06-26 23:59:59',INTERVAL 1 hour) |
++-------------------------------------------------+
+| 2018-06-27 00:59:59                             |
++-------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql&gt; select date_add('2018-06-26 23:59:59',INTERVAL 1 minute);  #对于日期加上1分钟
++---------------------------------------------------+
+| date_add('2018-06-26 23:59:59',INTERVAL 1 minute) |
++---------------------------------------------------+
+| 2018-06-27 00:00:59                               |
++---------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql&gt; select date_add('2018-06-26 23:59:59',INTERVAL 1 second);  #对日期加上1秒钟
++---------------------------------------------------+
+| date_add('2018-06-26 23:59:59',INTERVAL 1 second) |
++---------------------------------------------------+
+| 2018-06-27 00:00:00                               |
++---------------------------------------------------+
+1 row in set (0.00 sec)
+</code></pre>
+<p>​	3.对于某个日期加上n分钟n秒</p>
+<pre><code>mysql&gt; select date_add('2018-06-26 23:59:59',INTERVAL '1:1' MINUTE_SECOND);
++--------------------------------------------------------------+
+| date_add('2018-06-26 23:59:59',INTERVAL '1:1' MINUTE_SECOND) |
++--------------------------------------------------------------+
+| 2018-06-27 00:01:00                                          |
++--------------------------------------------------------------+
+1 row in set (0.00 sec)
+</code></pre>
+<p>备注:一次性加上1分钟,一秒.</p>
+<p>4.对于某个日期加上n小时n分钟n秒</p>
+<pre><code>mysql&gt; select date_add('2018-06-26 23:59:59',INTERVAL '1:1:1' HOUR_SECOND);
++--------------------------------------------------------------+
+| date_add('2018-06-26 23:59:59',INTERVAL '1:1:1' HOUR_SECOND) |
++--------------------------------------------------------------+
+| 2018-06-27 01:01:00                                          |
++--------------------------------------------------------------+
+1 row in set (0.00 sec)
+</code></pre>
+<p>备注:单位HOUR_SECOND就是从小时到秒.expr:HOURS:MINUTES:SECONDS</p>
+<p>5.对某个日期加上n小时n分钟</p>
+<pre><code>mysql&gt; select date_add('2018-06-26 23:59:59',INTERVAL '1:1' HOUR_MINUTE);
++------------------------------------------------------------+
+| date_add('2018-06-26 23:59:59',INTERVAL '1:1' HOUR_MINUTE) |
++------------------------------------------------------------+
+| 2018-06-27 01:00:59                                        |
++------------------------------------------------------------+
+1 row in set (0.00 sec)
+</code></pre>
+<p>备注:加上1小时1分钟</p>
+<p>6.对某个日期加上几天几小时几分钟几秒钟</p>
+<pre><code>mysql&gt; select date_add('2018-06-26 23:59:59',INTERVAL '2 2:1:1' DAY_SECOND);
++---------------------------------------------------------------+
+| date_add('2018-06-26 23:59:59',INTERVAL '2 2:1:1' DAY_SECOND) |
++---------------------------------------------------------------+
+| 2018-06-29 02:01:00                                           |
++---------------------------------------------------------------+
+1 row in set (0.00 sec)
+</code></pre>
+<p>备注:在日期上加上2天2小时2分钟1秒钟</p>
+<p><strong>unit(单位)和expr(表达式)对照表</strong>:</p>
+<figure data-type="image" tabindex="1"><img src="https://images2018.cnblogs.com/blog/1226424/201806/1226424-20180626135953354-1600572151.png" alt="img" loading="lazy"></figure>
+<p><strong>小结</strong>:</p>
+<p>对于某个日期的计算,无论加上多少,都可以根据这个表格进行调整.对于日期的减法,尽量用date_sub()函数来实现.</p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://MoSpade.github.io/post/spark-core/">
+                  <h3 class="post-title">
+                    Spark core
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>
