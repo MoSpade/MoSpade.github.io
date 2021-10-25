@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mospade.github.io/</id>
     <title>MoSpade</title>
-    <updated>2021-10-25T11:26:20.105Z</updated>
+    <updated>2021-10-25T13:24:31.202Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://mospade.github.io/"/>
     <link rel="self" href="https://mospade.github.io/atom.xml"/>
@@ -10,6 +10,24 @@
     <logo>https://mospade.github.io/images/avatar.png</logo>
     <icon>https://mospade.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, MoSpade</rights>
+    <entry>
+        <title type="html"><![CDATA[GitHub]]></title>
+        <id>https://mospade.github.io/post/github/</id>
+        <link href="https://mospade.github.io/post/github/">
+        </link>
+        <updated>2021-10-25T13:23:12.000Z</updated>
+        <content type="html"><![CDATA[<p>#找开源项目的一些途径<br>
+• https://github.com/trending/<br>
+• https://github.com/521xueweihan/HelloGitHub<br>
+• https://github.com/ruanyf/weekly<br>
+• https://www.zhihu.com/column/mm-fe</p>
+<p>#特殊的查找资源小技巧-常用前缀后缀<br>
+• 找百科大全 awesome xxx<br>
+• 找例子 xxx sample<br>
+• 找空项目架子 xxx starter / xxx boilerplate<br>
+• 找教程  xxx tutorial</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[ mysql中date_add()函数的使用?]]></title>
         <id>https://mospade.github.io/post/mysql-zhong-date_addhan-shu-de-shi-yong/</id>
